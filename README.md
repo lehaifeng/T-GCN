@@ -6,6 +6,10 @@ This is a TensorFlow implementation of Temporal Graph Convolutional Network for 
 
 Accurate and real-time traffic forecasting plays an important role in the Intelligent Traffic System (ITS), it is of great significance for urban traffic planning, traffic management, and traffic control. However, traffic forecasting has always been a concerned “open” scientific issue, owing to the constraint of urban road network topological structure and the law of dynamic change with time, namely spatial dependence and temporal dependence. In order to capture the spatial and temporal dependence simultaneously, we propose a novel neural network-based traffic forecasting method, temporal graph convolutional network (T-GCN) model, which is in combination with the graph convolutional network (GCN) and gated recurrent unit (GRU). Specifically, the graph convolutional network is used to learn the complex topological structure to capture the spatial dependence and the gated recurrent unit is used to learn the dynamic change of traffic flow to capture the temporal dependence. And then, the T-GCN model is employed to realize the traffic forecasting task based on urban road network. Experiments demonstrate that our T-GCN model can obtain the spatio-temporal correlation from traffic data and the prediction effects outperform state-of-art baselines on real-world traffic datasets.
 
+![Figure 1](pics/gcn.png "Figure 1-1")
+![Figure 2](pics/Cell.png "Figure 1-1")
+![Figure 3](pics/arc.png "Figure 1-1")
+
 The code of this paper can be downloaded at https://github.com/lehaifeng/T-GCN
 
 # Code
