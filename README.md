@@ -8,7 +8,7 @@ Accurate and real-time traffic forecasting plays an important role in the Intell
 
 <img src="pics/gcn.png" width="400px" hight="400px" />
 GCN module
-<img src="pics/arc" width="400px" hight="400px" />
+<img src="pics/arc.png" width="400px" hight="400px" />
 GRU module
 <img src="pics/Cell.png" width="400px" hight="400px" />
 T-GCN Cell
