@@ -1,0 +1,6 @@
+model_checkpoint_path: "TGCN_pre_4500-4500"
+all_model_checkpoint_paths: "TGCN_pre_2500-2500"
+all_model_checkpoint_paths: "TGCN_pre_3000-3000"
+all_model_checkpoint_paths: "TGCN_pre_3500-3500"
+all_model_checkpoint_paths: "TGCN_pre_4000-4000"
+all_model_checkpoint_paths: "TGCN_pre_4500-4500"

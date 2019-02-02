@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-
-
 import pickle as pkl
 import tensorflow as tf
 import pandas as pd
@@ -14,8 +12,7 @@ from tgcn import tgcnCell
 
 from visualization import plot_result,plot_error
 from sklearn.metrics import mean_squared_error,mean_absolute_error
-import matplotlib.pyplot as plt
-from sklearn.preprocessing import MinMaxScaler
+#import matplotlib.pyplot as plt
 import time
 
 time_start = time.time()
@@ -24,13 +21,13 @@ flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
 flags.DEFINE_integer('training_epoch', 1, 'Number of epochs to train.')
-flags.DEFINE_integer('gru_units', 100, 'hidden units of gru.')
-flags.DEFINE_integer('seq_len',10 , 'time length of inputs.')
-flags.DEFINE_integer('pre_len', 1, 'time length of prediction.')
+flags.DEFINE_integer('gru_units', 64, 'hidden units of gru.')
+flags.DEFINE_integer('seq_len',12 , '  time length of inputs.')
+flags.DEFINE_integer('pre_len', 3, 'time length of prediction.')
 flags.DEFINE_float('train_rate', 0.8, 'rate of training set.')
-flags.DEFINE_integer('batch_size', 64, 'batch size.')
-flags.DEFINE_string('dataset', 'sz', 'sz or los.')
-flags.DEFINE_string('model_name', 'tgcn', 'tgcn or GRU or GCN.')
+flags.DEFINE_integer('batch_size', 32, 'batch size.')
+flags.DEFINE_string('dataset', 'los', 'sz or los.')
+flags.DEFINE_string('model_name', 'tgcn', 'tgcn')
 model_name = FLAGS.model_name
 data_name = FLAGS.dataset
 train_rate =  FLAGS.train_rate
@@ -55,7 +52,6 @@ data1 =np.mat(data,dtype=np.float32)
 max_value = np.max(data1)
 data1  = data1/max_value
 trainX, trainY, testX, testY = preprocess_data(data1, time_len, train_rate, seq_len, pre_len)
-#trainX, trainY, testX, testY = preprocess_average_data(data1, time_len, train_rate, seq_len, pre_len)
 
 totalbatch = int(trainX.shape[0]/batch_size)
 training_data_count = len(trainX)
@@ -77,8 +73,7 @@ def TGCN(_X, _weights, _biases):
     output = tf.transpose(output, perm=[0,2,1])
     output = tf.reshape(output, shape=[-1,num_nodes])
     return output, m, states
-    
-    
+        
 ###### placeholders ######
 inputs = tf.placeholder(tf.float32, shape=[None, seq_len, num_nodes])
 labels = tf.placeholder(tf.float32, shape=[None, pre_len, num_nodes])
@@ -91,10 +86,7 @@ biases = {
 
 if model_name == 'tgcn':
     pred,ttts,ttto = TGCN(inputs, weights, biases)
-#if model_name == 'GRU':
-#    pred,ttts,ttto = GRU(inputs, weights, biases)    
-#if model_name == 'GCN':
-#    model = GCN(gru_units, inputs, output_dim) 
+
 y_pred = pred
       
 
@@ -173,20 +165,18 @@ time_end = time.time()
 print(time_end-time_start,'s')
 
 ############## visualization ###############
-#x = [i for i in range(training_epoch)]
 b = int(len(batch_rmse)/totalbatch)
 batch_rmse1 = [i for i in batch_rmse]
 train_rmse = [(sum(batch_rmse1[i*totalbatch:(i+1)*totalbatch])/totalbatch) for i in range(b)]
 batch_loss1 = [i for i in batch_loss]
 train_loss = [(sum(batch_loss1[i*totalbatch:(i+1)*totalbatch])/totalbatch) for i in range(b)]
-#test_rmse = [float(i) for i in test_rmse]
 
 index = test_rmse.index(np.min(test_rmse))
 test_result = test_pred[index]
 var = pd.DataFrame(test_result)
 var.to_csv(path+'/test_result.csv',index = False,header = False)
-plot_result(test_result,test_label1,path)
-plot_error(train_rmse,train_loss,test_rmse,test_acc,test_mae,path)
+#plot_result(test_result,test_label1,path)
+#plot_error(train_rmse,train_loss,test_rmse,test_acc,test_mae,path)
 
 print('min_rmse:%r'%(np.min(test_rmse)),
       'min_mae:%r'%(test_mae[index]),

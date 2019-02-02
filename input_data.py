@@ -13,20 +13,14 @@ def load_sz_data(dataset):
     sz_adj = pd.read_csv(r'data/sz_adj.csv',header=None)
     adj = np.mat(sz_adj)
     sz_tf = pd.read_csv(r'data/sz_speed.csv')
-#    data = sz_tf.transpose()
     return sz_tf, adj
 
 def load_los_data(dataset):
-    los_adj = pkl.load(open(r'data/Los_adj_mx.pkl',  "rb"))
-    los_adj = los_adj[2]
-    for i in range(207):
-        for j in range(207):
-            x = np.max([los_adj[i][j],los_adj[j][i]])
-            los_adj[i][j] = x
-            los_adj[j][i] = x
-    los_tf = pd.read_hdf(r'data/Los_traffic_df.h5')
-    los_tf = los_tf.iloc[0:2016,:]
-    return los_tf, los_adj
+    los_adj = pd.read_csv(r'data/los_adj.csv',header=None)
+    adj = np.mat(los_adj)
+    los_tf = pd.read_csv(r'data/los_speed.csv')
+    return los_tf, adj
+
 
 def preprocess_data(data, time_len, rate, seq_len, pre_len):
     train_size = int(time_len * rate)
