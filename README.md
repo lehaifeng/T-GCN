@@ -7,18 +7,15 @@ Accurate and real-time traffic forecasting plays an important role in the Intell
 
 The manuscript can be visited at https://arxiv.org/abs/1811.05320
 
-GCN module:
-
+GCN module:<br>
 <img src="pics/gcn.png" width="400px" hight="400px" />
 
 
-GRU module:
-
+GRU module:<br>
 <img src="pics/arc.png" width="400px" hight="400px" />
 
 
-T-GCN Cell:
-
+T-GCN Cell:<br>
 <img src="pics/Cell.png" width="400px" hight="400px" />
 
 
@@ -34,12 +31,12 @@ T-GCN Cell:
 ## Run the demo
 Python main.py
 
-Our baselines included: 
-(1) History Average model (HA)
-(2) Autoregressive Integrated Moving Average model (ARIMA)
-(3) Support Vector Regression model (SVR)
-(4) Graph Convolutional Network model (GCN)
-(5) Gated Recurrent Unit model (GRU)
+Our baselines included: <br>
+(1) History Average model (HA)<br>
+(2) Autoregressive Integrated Moving Average model (ARIMA)<br>
+(3) Support Vector Regression model (SVR)<br>
+(4) Graph Convolutional Network model (GCN)<br>
+(5) Gated Recurrent Unit model (GRU)<br>
 
 The python implementations of HA/ARIMA/SVR models were in the baselines.py; The GCN and GRU models were in gcn.py and gru.py respective.
 The T-GCN model was in the tgcn.py
