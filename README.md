@@ -1,29 +1,24 @@
 This is a TensorFlow implementation of T-GCN: A Temporal Graph ConvolutionalNetwork for Traffic Prediction.
-<<<<<<< HEAD
-=======
-
->>>>>>> b352bde04a021cdb864c062a20415004de0093bc
 
 # Manuscript
 ## T-GCN: A Temporal Graph ConvolutionalNetwork for Traffic Prediction
 
-<<<<<<< HEAD
 Accurate and real-time traffic forecasting plays an important role in the Intelligent Traffic System and is of great significance for urban traffic planning, traffic management, and traffic control. However, traffic forecasting has always been considered an open scientific issue, owing to the constraints of urban road network topological structure and the law of dynamic change with time, namely, spatial dependence and temporal dependence. To capture the spatial and temporal dependence simultaneously, we propose a novel neural network-based traffic forecasting method, the temporal graph convolutional network (T-GCN) model, which is in combination with the graph convolutional network (GCN) and gated recurrent unit (GRU). Specifically, the GCN is used to learn complex topological structures to capture spatial dependence and the gated recurrent unit is used to learn dynamic changes of traffic data to capture temporal dependence. Then, the T-GCN model is employed to traffic forecasting based on the urban road network. Experiments demonstrate that our T-GCN model can obtain the spatio-temporal correlation from traffic data and the predictions outperform state-of-art baselines on real-world traffic datasets. 
-=======
-Accurate and real-time traffic forecasting plays an important role in the Intelligent Traffic System and is of great significance for urban traffic planning, traffic management, and traffic control. However, traffic forecasting has always been considered an “open” scientific issue, owing to the constraints of urban road network topological structure and the law of dynamic change with time, namely, spatial dependence and temporal dependence. To capture the spatial and temporal dependence simultaneously, we propose a novel neural network-based traffic forecasting method, the temporal graph convolutional network (T-GCN) model, which is in combination with the graph convolutional network (GCN) and gated recurrent unit (GRU). Specifically, the GCN is used to learn complex topological structures to capture spatial dependence and the gated recurrent unit is used to learn dynamic changes of traffic data to capture temporal dependence. Then, the T-GCN model is employed to traffic forecasting based on the urban road network. Experiments demonstrate that our T-GCN model can obtain the spatio-temporal correlation from traffic data and the predictions outperform state-of-art baselines on real-world traffic datasets.
->>>>>>> b352bde04a021cdb864c062a20415004de0093bc
 
 The manuscript can be visited at https://arxiv.org/abs/1811.05320
 
 GCN module:
+
 <img src="pics/gcn.png" width="400px" hight="400px" />
 
 
-GRU module
+GRU module:
+
 <img src="pics/arc.png" width="400px" hight="400px" />
 
 
 T-GCN Cell:
+
 <img src="pics/Cell.png" width="400px" hight="400px" />
 
 
@@ -39,7 +34,12 @@ T-GCN Cell:
 ## Run the demo
 Python main.py
 
-Our baselines included: (1) History Average model (HA), (2) Autoregressive Integrated Moving Average model (ARIMA), Support Vector Regression model (SVR), (4) Graph Convolutional Network model (GCN) and (5) Gated Recurrent Unit model (GRU).
+Our baselines included: 
+(1) History Average model (HA)
+(2) Autoregressive Integrated Moving Average model (ARIMA)
+(3) Support Vector Regression model (SVR)
+(4) Graph Convolutional Network model (GCN)
+(5) Gated Recurrent Unit model (GRU)
 
 The python implementations of HA/ARIMA/SVR models were in the baselines.py; The GCN and GRU models were in gcn.py and gru.py respective.
 The T-GCN model was in the tgcn.py
