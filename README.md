@@ -7,8 +7,8 @@ Accurate and real-time traffic forecasting plays an important role in the Intell
 
 The manuscript can be visited at https://arxiv.org/abs/1811.05320
 
-If this repo is useful in your research, please cite our paper using following information.
-'''
+If this repo is useful in your research, please cite our paper using following information.   
+```
 Bibtex
 @article{zhao2019tgcn,
     title={T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction, IEEE Transactions on Intelligent Transportation Systems},
@@ -16,7 +16,7 @@ Bibtex
     journal={IEEE Transactions on Intelligent Transportation Systems},
     year={DOI:10.1109/TITS.2019.2935152}
 }
-'''
+```
 
 GCN module:<br>
 <img src="pics/gcn.png" width="400px" hight="400px" />
