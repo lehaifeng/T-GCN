@@ -7,7 +7,7 @@ Accurate and real-time traffic forecasting plays an important role in the Intell
 
 The manuscript can be visited at https://arxiv.org/abs/1811.05320
 
-If this repo is useful in your research, please cite our paper as follow.   
+If this repo is useful in your research, please kindly consider citing our paper as follow.   
 ```
 Bibtex
 @article{zhao2019tgcn,
