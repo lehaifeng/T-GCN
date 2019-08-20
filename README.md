@@ -26,7 +26,7 @@ Endnote
 %A Zhang, Chao
 %A Liu, Yu
 %A Wang, Pu
-%A FLin, Tao
+%A Lin, Tao
 %A Deng, Min
 %A Li, Haifeng
 %D 2019
