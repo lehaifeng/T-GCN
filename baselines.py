@@ -32,6 +32,7 @@ def evaluation(a,b):
     r2 = 1-((a-b)**2).sum()/((a-a.mean())**2).sum()
     var = 1-(np.var(a - b))/np.var(a)
     return rmse, mae, 1-F_norm, r2, var
+
  
 path = r'data/los_speed.csv'
 data = pd.read_csv(path)
@@ -44,13 +45,27 @@ pre_len = 3
 trainX,trainY,testX,testY = preprocess_data(data, time_len, train_rate, seq_len, pre_len)
 method = 'HA' ####HA or SVR or ARIMA
 
+
 ########### HA #############
 if method == 'HA':
     result = []
     for i in range(len(testX)):
-        a = testX[i]
-        a1 = np.mean(a, axis=0) 
-        result.append(a1)
+        a = np.array(testX[i])
+        tempResult = []
+
+        a1 = np.mean(a, axis=0)
+        tempResult.append(a1)
+        a = a[1:]
+        a = np.append(a, [a1], axis=0)
+        a1 = np.mean(a, axis=0)
+        tempResult.append(a1)
+        a = a[1:]
+        a = np.append(a, [a1], axis=0)
+        a1 = np.mean(a, axis=0)
+        tempResult.append(a1)
+
+        result.append(tempResult)
+
     result1 = np.array(result)
     result1 = np.reshape(result1, [-1,num_nodes])
     testY1 = np.array(testY)
