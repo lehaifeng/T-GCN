@@ -1,8 +1,12 @@
 ## Overview
 This repository includes our works on Urban Traffic Flow Prediction by Graph Convolutional Network.
+
 The file structure is listed as follows:
+
 1 T-GCN is the source codes for Temporal Graph Convolutional Network. 
+
 2 A3T-GCN is the source codes for Temporal Graph Convolutional Network with attention structure.
+
 3 Baseline includes methods such as (1) History Average model (HA) (2) Autoregressive Integrated Moving Average model (ARIMA) (3) Support Vector Regression model (SVR) (4) Graph Convolutional Network model (GCN) (5) Gated Recurrent Unit model (GRU)
 
 ## T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction
