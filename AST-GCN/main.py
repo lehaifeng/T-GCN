@@ -9,7 +9,6 @@ import os
 import numpy.linalg as la
 from acell import preprocess_data,load_assist_data
 from tgcn import tgcnCell
-#from gru import GRUCell 
 
 from visualization import plot_result,plot_error
 from sklearn.metrics import mean_squared_error,mean_absolute_error
