@@ -1,1 +1,1 @@
-This is the PyTorch version of T-GCN.
+The PyTorch version of T-GCN.
