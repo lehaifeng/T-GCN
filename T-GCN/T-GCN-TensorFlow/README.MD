@@ -1,6 +1,5 @@
 This is a TensorFlow implementation of T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction.
 
-# The Code
 ## Requirements:
 * tensorflow
 * scipy
