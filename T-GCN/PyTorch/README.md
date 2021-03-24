@@ -1,6 +1,6 @@
 # T-GCN-PyTorch
 
-This is an unofficial implementation of T-GCN in the following paper: [T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction](https://arxiv.org/abs/1811.05320).
+This is an implementation of T-GCN in the following paper: [T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction](https://arxiv.org/abs/1811.05320).
 
 ## Requirements
 
