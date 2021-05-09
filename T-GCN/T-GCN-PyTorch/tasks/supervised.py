@@ -3,6 +3,7 @@ import torch.optim
 import torch.nn as nn
 import torch.nn.functional as F
 import pytorch_lightning as pl
+import torchmetrics
 import utils.metrics
 import utils.losses
 
@@ -10,14 +11,15 @@ import utils.losses
 class SupervisedForecastTask(pl.LightningModule):
     def __init__(self, model: nn.Module, regressor='linear', loss='mse',
                  pre_len: int = 3, learning_rate: float = 1e-3, 
-                 weight_decay: float = 1.5e-3, feat_max_val=1, **kwargs):
+                 weight_decay: float = 1.5e-3, feat_max_val: float=1., **kwargs):
         super(SupervisedForecastTask, self).__init__()
-        self.save_hyperparameters()
+        self.save_hyperparameters(ignore=['model'])
         self.model = model
         self.regressor = nn.Linear(self.model.hyperparameters.get('hidden_dim') or 
                                    self.model.hyperparameters.get('output_dim'), 
                                    self.hparams.pre_len) if regressor == 'linear' else regressor
         self._loss = loss
+        self.feat_max_val = feat_max_val
         
     def forward(self, x):
         # (batch_size, seq_len, num_nodes)
@@ -58,11 +60,11 @@ class SupervisedForecastTask(pl.LightningModule):
 
     def validation_step(self, batch, batch_idx):
         predictions, y = self.shared_step(batch, batch_idx)
-        predictions = predictions * self.hparams.feat_max_val
-        y = y * self.hparams.feat_max_val
+        predictions = predictions * self.feat_max_val
+        y = y * self.feat_max_val
         loss = self.loss(predictions, y)
-        rmse = torch.sqrt(pl.metrics.functional.mean_squared_error(predictions, y))
-        mae = pl.metrics.functional.mean_absolute_error(predictions, y)
+        rmse = torch.sqrt(torchmetrics.functional.mean_squared_error(predictions, y))
+        mae = torchmetrics.functional.mean_absolute_error(predictions, y)
         accuracy = utils.metrics.accuracy(predictions, y)
         r2 = utils.metrics.r2(predictions, y)
         explained_variance = utils.metrics.explained_variance(predictions, y)
@@ -92,4 +94,3 @@ class SupervisedForecastTask(pl.LightningModule):
         parser.add_argument('--weight_decay', '--wd', type=float, default=1.5e-3)
         parser.add_argument('--loss', type=str, default='mse')
         return parser
-
