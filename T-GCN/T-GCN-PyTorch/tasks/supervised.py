@@ -13,11 +13,12 @@ class SupervisedForecastTask(pl.LightningModule):
                  pre_len: int = 3, learning_rate: float = 1e-3, 
                  weight_decay: float = 1.5e-3, feat_max_val: float=1., **kwargs):
         super(SupervisedForecastTask, self).__init__()
-        self.save_hyperparameters(ignore=['model'])
+        self.save_hyperparameters()
         self.model = model
-        self.regressor = nn.Linear(self.model.hyperparameters.get('hidden_dim') or 
-                                   self.model.hyperparameters.get('output_dim'), 
-                                   self.hparams.pre_len) if regressor == 'linear' else regressor
+        self.regressor = nn.Linear(
+            self.model.hyperparameters.get('hidden_dim') or self.model.hyperparameters.get('output_dim'), 
+            self.hparams.pre_len
+        ) if regressor == 'linear' else regressor
         self._loss = loss
         self.feat_max_val = feat_max_val
         
