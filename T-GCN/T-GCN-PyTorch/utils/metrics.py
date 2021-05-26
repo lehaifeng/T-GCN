@@ -7,7 +7,7 @@ def accuracy(pred, y):
     :param y: ground truth
     :return: accuracy, defined as 1 - (norm(y - pred) / norm(y))
     """
-    return 1 - torch.linalg.norm(y - pred, 'fro') / torch.linalg.norm(y, 'fro')
+    return 1 - torch.linalg.norm(y - pred, "fro") / torch.linalg.norm(y, "fro")
 
 
 def r2(pred, y):

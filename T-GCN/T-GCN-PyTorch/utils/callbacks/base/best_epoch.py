@@ -8,41 +8,41 @@ from pytorch_lightning.callbacks import Callback
 class BestEpochCallback(Callback):
     TORCH_INF = torch_inf = torch.tensor(np.Inf)
     MODE_DICT = {
-            "min": (torch_inf, "min"),
-            "max": (-torch_inf, "max"),
+        "min": (torch_inf, "min"),
+        "max": (-torch_inf, "max"),
     }
-    MONITOR_OP_DICT = {
-        "min": torch.lt, 
-        "max": torch.gt
-    }
+    MONITOR_OP_DICT = {"min": torch.lt, "max": torch.gt}
 
-    def __init__(self, monitor='', mode='min'):
+    def __init__(self, monitor="", mode="min"):
         super(BestEpochCallback, self).__init__()
         self.monitor = monitor
         self.__init_monitor_mode(monitor, mode)
         self.best_epoch = 0
 
     def __init_monitor_mode(self, monitor, mode):
-        if mode not in self.MODE_DICT and mode != 'auto':
+        if mode not in self.MODE_DICT and mode != "auto":
             rank_zero_warn(
                 f"PrintBestEpochMetrics mode {mode} is unknown, fallback to auto mode",
                 RuntimeWarning,
             )
             mode = "auto"
-        if mode == 'auto':
+        if mode == "auto":
             rank_zero_warn(
                 "mode='auto' is deprecated in v1.1 and will be removed in v1.3."
                 " Default value for mode with be 'min' in v1.3.",
-                DeprecationWarning
+                DeprecationWarning,
             )
-            self.MODE_DICT['auto'] = (
+            self.MODE_DICT["auto"] = (
                 (-self.TORCH_INF, "max")
-                if monitor is not None and ("acc" in monitor or monitor.startswith("fmeasure"))
+                if monitor is not None
+                and ("acc" in monitor or monitor.startswith("fmeasure"))
                 else (self.TORCH_INF, "min")
             )
         self.best_value, self.mode = self.MODE_DICT[mode]
 
-    def on_validation_batch_end(self, trainer, pl_module, outputs, batch, batch_idx, dataloader_idx):
+    def on_validation_batch_end(
+        self, trainer, pl_module, outputs, batch, batch_idx, dataloader_idx
+    ):
         if (trainer.current_epoch + 1) % trainer.check_val_every_n_epoch != 0:
             return
         monitor_op = self.MONITOR_OP_DICT[self.mode]

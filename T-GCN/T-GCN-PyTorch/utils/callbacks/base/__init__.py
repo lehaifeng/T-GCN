@@ -1,6 +1,4 @@
 from .best_epoch import BestEpochCallback
 
 
-__all__ = [
-    'BestEpochCallback'
-]
+__all__ = ["BestEpochCallback"]

@@ -1,6 +1,4 @@
 from tasks.supervised import SupervisedForecastTask
 
 
-__all__ = [
-    'SupervisedForecastTask'
-]
+__all__ = ["SupervisedForecastTask"]
