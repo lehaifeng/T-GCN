@@ -34,20 +34,17 @@ class BestEpochCallback(Callback):
             )
             self.MODE_DICT["auto"] = (
                 (-self.TORCH_INF, "max")
-                if monitor is not None
-                and ("acc" in monitor or monitor.startswith("fmeasure"))
+                if monitor is not None and ("acc" in monitor or monitor.startswith("fmeasure"))
                 else (self.TORCH_INF, "min")
             )
         self.best_value, self.mode = self.MODE_DICT[mode]
 
-    def on_validation_batch_end(
-        self, trainer, pl_module, outputs, batch, batch_idx, dataloader_idx
-    ):
+    def on_validation_batch_end(self, trainer, pl_module, outputs, batch, batch_idx, dataloader_idx):
         if (trainer.current_epoch + 1) % trainer.check_val_every_n_epoch != 0:
             return
         monitor_op = self.MONITOR_OP_DICT[self.mode]
         metrics_dict = copy.copy(trainer.callback_metrics)
         monitor_value = metrics_dict.get(self.monitor, self.best_value)
-        if monitor_op(monitor_value, self.best_value):
+        if monitor_op(monitor_value.type_as(self.best_value), self.best_value):
             self.best_value = monitor_value
             self.best_epoch = trainer.current_epoch
