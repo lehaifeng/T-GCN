@@ -48,9 +48,21 @@ method = 'HA' ####HA or SVR or ARIMA
 if method == 'HA':
     result = []
     for i in range(len(testX)):
-        a = testX[i]
-        a1 = np.mean(a, axis=0) 
-        result.append(a1)
+        a = np.array(testX[i])
+        tempResult = []
+
+        a1 = np.mean(a, axis=0)
+        tempResult.append(a1)
+        a = a[1:]
+        a = np.append(a, [a1], axis=0)
+        a1 = np.mean(a, axis=0)
+        tempResult.append(a1)
+        a = a[1:]
+        a = np.append(a, [a1], axis=0)
+        a1 = np.mean(a, axis=0)
+        tempResult.append(a1)
+
+        result.append(tempResult)
     result1 = np.array(result)
     result1 = np.reshape(result1, [-1,num_nodes])
     testY1 = np.array(testY)
@@ -104,7 +116,7 @@ if method == 'SVR':
 
 ######## ARIMA #########
 if method == 'ARIMA':
-    rng = pd.date_range('1/3/2012', periods=5664, freq='15min')
+    rng = pd.date_range('1/3/2012', periods=2016, freq='15min')
     a1 = pd.DatetimeIndex(rng)
     data.index = a1
     num = data.shape[1]   
