@@ -53,7 +53,7 @@ def main_supervised(args):
     callbacks = get_callbacks(args)
     trainer = pl.Trainer.from_argparse_args(args, callbacks=callbacks)
     trainer.fit(task, dm)
-    results = trainer.validate()
+    results = trainer.validate(datamodule=dm)
     return results
 
 
