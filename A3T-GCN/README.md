@@ -6,7 +6,7 @@ Accurate real-time traffic forecasting is a core technological problem against t
 
 The manuscript can be visited at https://www.mdpi.com/2220-9964/10/7/485/html or arxiv https://arxiv.org/abs/2006.11583.
 
-···
+'''
 Bibtex
 @article{zhao2019tgcn,
     title={T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction},
@@ -32,4 +32,4 @@ Endnote
 %B IEEE Transactions on Intelligent Transportation Systems
 %R DOI:10.1109/TITS.2019.2935152
 %! T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction
-···
+'''
