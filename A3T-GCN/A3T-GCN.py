@@ -8,7 +8,7 @@ import numpy as np
 import math
 import os
 import numpy.linalg as la
-from input_data import preprocess_data,preprocess_average_data,load_sz_data,load_los_data
+from input_data import preprocess_data,load_sz_data,load_los_data
 from tgcn import tgcnCell
 from gru import GRUCell 
 
@@ -62,7 +62,6 @@ data1 =np.mat(data,dtype=np.float32)
 max_value = np.max(data1)
 data1  = data1/max_value
 trainX, trainY, testX, testY = preprocess_data(data1, time_len, train_rate, seq_len, pre_len)
-#trainX, trainY, testX, testY = preprocess_average_data(data1, time_len, train_rate, seq_len, pre_len)
 
 totalbatch = int(trainX.shape[0]/batch_size)
 training_data_count = len(trainX)
@@ -72,28 +71,14 @@ def TGCN(_X, weights, biases):
     cell_1 = tgcnCell(gru_units, adj, num_nodes=num_nodes)
     cell = tf.nn.rnn_cell.MultiRNNCell([cell_1], state_is_tuple=True)
     _X = tf.unstack(_X, axis=1)
-#    print(_X)
     outputs, states = tf.nn.static_rnn(cell, _X, dtype=tf.float32)
-#    print('000',outputs)
 
-#    out = outputs[-1]
-#    out = tf.reshape(outputs,shape=[seq_len, -1, num_nodes,gru_units])
     out = tf.concat(outputs, axis=0)
     out = tf.reshape(out, shape=[seq_len,-1,num_nodes,gru_units])
     out = tf.transpose(out, perm=[1,0,2,3])
-#    out = tf.reshape(out, shape=[-1, num_nodes, gru_units])
-#    print('111',out)
-#    out = tf.transpose(out,perm=[1,2,0,3]) #n,t,nodes*u
 
-#    out = tf.transpose(out,perm=[1,0,2]) #n,t,nodes*u
-#    print('111',out)
-#    out = tf.reshape(out,[-1,seq_len,gru_units])
-#    lstm_last_output = m[-1]
     last_output,alpha = self_attention1(out, weight_att, bias_att)
-#    print('yyy')
-    
-#    output = tf.reshape(last_output,shape=[-1,num_nodes,gru_units])
-#    output = tf.reshape(last_output,shape=[-1,gru_units])
+
     output = tf.reshape(last_output,shape=[-1,seq_len])
     output = tf.matmul(output, weights['out']) + biases['out']
     output = tf.reshape(output,shape=[-1,num_nodes,pre_len])
@@ -117,30 +102,17 @@ def self_attention1(x, weight_att,bias_att):
 
     beta = tf.nn.softmax(s, dim=-1)  # attention map
     print('bata',beta)
-#    o = beta * h1
     context = tf.expand_dims(beta,2) * tf.reshape(x,[-1,seq_len,num_nodes])
-#    gamma = tf.get_variable("gamma", [1], initializer=tf.constant_initializer(0.0))
-#    o = tf.expand_dims(o, 2)
-#    context = gamma * o + tf.reshape(x,shape=[-1,seq_len,num_nodes])
+
     context = tf.transpose(context,perm=[0,2,1])
     print('context', context)
     return context, beta 
 def self_attention(x, ch, weight_att, bias_att):
-#    x1 = tf.reshape(x,[-1, gru_units])
-#    x1 = tf.reshape(x,[-1, num_nodes*gru_units])
-#    print('x1',x1)
-#    f = tf.layers.conv2d(x, ch // 8, kernel_size=1, kernel_initializer=tf.variance_scaling_initializer())
     f = tf.matmul(tf.reshape(x, [-1, gru_units]), weight_att['w'])
     g = tf.matmul(tf.reshape(x, [-1, gru_units]), weight_att['w']) + bias_att['b_att']
     h = tf.matmul(tf.reshape(x, [-1, gru_units]), weight_att['w']) + bias_att['b_att']
     print('h',h)
-#    g =  tf.layers.conv2d(x, ch // 8, kernel_size=1, kernel_initializer=tf.variance_scaling_initializer())
-#    h =  tf.layers.conv2d(x, ch, kernel_size=1, kernel_initializer=tf.variance_scaling_initializer())
-    # N = h * w
-#    s = tf.matmul(g, f, transpose_b=True) # # [bs, N, N]
-#    f = tf.reshape(f, [-1,num_nodes,seq_len])
-#    g = tf.reshape(g, [-1,num_nodes,seq_len])
-#    h = tf.reshape(h, [-1,num_nodes,seq_len])
+
     f = tf.reshape(f, [-1,num_nodes])
     g = tf.reshape(g, [-1,num_nodes])
     h = tf.reshape(h, [-1,num_nodes])    
@@ -246,8 +218,6 @@ for epoch in range(training_epoch):
                                                  feed_dict = {inputs:mini_batch, labels:mini_label})
         batch_loss.append(loss1)
         batch_rmse.append(rmse1 * max_value)
-#        batch_rmse.append(rmse1 * std + mean)
-#        batch_pred.append(train_output * max_value)
 
      # Test completely at every epoch
     loss2, rmse2, test_output = sess.run([loss, error, y_pred],
@@ -255,14 +225,11 @@ for epoch in range(training_epoch):
     test_label = np.reshape(testY,[-1,num_nodes])
     rmse, mae, acc, r2_score, var_score = evaluation(test_label, test_output)
     test_label1 = test_label * max_value
-#    test_label1 = test_label * std+mean    
     test_output1 = test_output * max_value
-#    test_output1 = test_label * std+mean  
     test_loss.append(loss2)
     test_rmse.append(rmse * max_value)
     test_mae.append(mae * max_value)
-#    test_rmse.append(rmse * std+mean)
-#    test_mae.append(mae * std+mean)
+
     test_acc.append(acc)
     test_r2.append(r2_score)
     test_var.append(var_score)
@@ -302,16 +269,9 @@ var = pd.DataFrame(test_acc)
 var.to_csv(path+'/test_acc.csv',index = False,header = False)
 var = pd.DataFrame(test_rmse)
 var.to_csv(path+'/test_rmse.csv',index = False,header = False)
-#var = pd.DataFrame(alpha1)
-#var.to_csv(path+'/alpha.csv',index = False, header = False)
 
-#print('min_rmse:%r'%(np.min(test_rmse)),
-#      'min_mae:%r'%(np.min(test_mae)),
-#      'max_acc:%r'%(np.max(test_acc)))
 
 index = test_rmse.index(np.min(test_rmse))
-#test_mae.index(np.min(test_mae))
-#test_acc.index(np.max(test_acc))
 test_result = test_pred[index]
 var = pd.DataFrame(test_result)
 var.to_csv(path+'/test_result.csv',index = False,header = False)
