@@ -37,10 +37,13 @@ Endnote
 %! KST-GCN: A Knowledge-Driven Spatial-Temporal Graph Convolutional Network for Traffic Forecasting
 ```
 
-## Framework
-<img src="Framework.jpg" width="600px" hight="600px" />
-
 The manuscript can be visited at https://ieeexplore.ieee.org/document/9681326/ or https://arxiv.org/abs/2011.14992.
+
+## Framework
+<img src="./fig/Framework.jpg" width="600px" hight="600px" />
+
+#### KS-Cell
+<img src="./fig/KS-Cell.jpg" width="400px" hight="400px" />
 
 ## Requirements
 * pickle 
