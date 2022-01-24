@@ -43,17 +43,17 @@ Endnote
 The manuscript can be visited at https://ieeexplore.ieee.org/document/9681326/ or https://arxiv.org/abs/2011.14992.
 
 ## Requirements
-pickle
-tensorflow
-pandas
-numpy
-math
-os
-sklearn
-matplotlib
-time
-scipy
+* pickle 
+* tensorflow
+* pandas
+* numpy
+* math
+* os
+* sklearn
+* matplotlib
+* time
+* scipy
 
 ## Training
-python main.py
+python main.py --methods ktgcn
 
