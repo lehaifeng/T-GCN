@@ -48,7 +48,7 @@ class tgcnCell(RNNCell):
 
 
     def _gc(self, inputs, state, output_size, bias=0.0, scope=None):
-        kgembedding = pd.read_csv('/DHH/KR-EAR-master/attribute_embedding/sz_POI_KR-EAR(transR)_embedding5.csv',header = None)
+        kgembedding = pd.read_csv('./data/sz_POI_KR-EAR(transR)_embedding5.csv',header = None)
 #        sz_poi = np.transpose(kgembedding)
         kgembedding_max = np.max(np.max(kgembedding))
         kgembedding_nor = kgembedding/kgembedding_max
