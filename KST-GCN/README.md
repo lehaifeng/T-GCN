@@ -59,4 +59,6 @@ The manuscript can be visited at https://ieeexplore.ieee.org/document/9681326/ o
 
 ## Training
 python main.py --methods ktgcn
+You can also adjust the --seq_len and --pre_len parameters.
+
 
