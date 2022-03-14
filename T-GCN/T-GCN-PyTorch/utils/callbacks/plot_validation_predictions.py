@@ -1,4 +1,4 @@
-import torch
+import numpy as np
 import matplotlib.pyplot as plt
 from utils.callbacks.base import BestEpochCallback
 
@@ -20,12 +20,14 @@ class PlotValidationPredictionsCallback(BestEpochCallback):
         self.ground_truths.clear()
         self.predictions.clear()
         predictions, y = outputs
+        predictions = predictions.cpu().numpy()
+        y = y.cpu().numpy()
         self.ground_truths.append(y[:, 0, :])
         self.predictions.append(predictions[:, 0, :])
 
     def on_fit_end(self, trainer, pl_module):
-        ground_truth = torch.cat(self.ground_truths, dim=0).cpu().numpy()
-        predictions = torch.cat(self.predictions, dim=0).cpu().numpy()
+        ground_truth = np.concatenate(self.ground_truths, 0)
+        predictions = np.concatenate(self.predictions, 0)
         tensorboard = pl_module.logger.experiment
         for node_idx in range(ground_truth.shape[1]):
             plt.clf()
