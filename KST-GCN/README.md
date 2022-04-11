@@ -61,4 +61,6 @@ The manuscript can be visited at https://ieeexplore.ieee.org/document/9681326/ o
 python main.py --methods ktgcn
 You can also adjust the --seq_len and --pre_len parameters.
 
-
+## Data
+The dataset contains taxi track data from January 1 to January 31, 2015 and the road network data, weather data, and POI data of each street. 
+Our study area includes 156 road sections and 9 types of POIs: food services, enterprises, shopping services, transportation services, education services, living services, medical services, accommodation services, and others.
