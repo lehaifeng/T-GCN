@@ -48,7 +48,7 @@ class ktgcnCell(RNNCell):
 
 
     def _gc(self, inputs, state, output_size, bias=0.0, scope=None):
-        kgembedding = pd.read_csv('sz_data/sz_kg_embedding.csv',header = None)
+        kgembedding = pd.read_csv('data/sz_kg_embedding.csv',header = None)
         kgembedding_max = np.max(np.max(kgembedding))
         kgembedding_nor = abs(kgembedding/kgembedding_max)
         
