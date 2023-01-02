@@ -75,6 +75,7 @@ class SupervisedForecastTask(pl.LightningModule):
     def validation_step(self, batch, batch_idx):
         predictions, y = self.shared_step(batch, batch_idx)
         predictions = predictions * self.feat_max_val
+        predictions = torch.round(torch.abs(predictions))
         y = y * self.feat_max_val
         loss = self.loss(predictions, y)
         # rmse = torch.sqrt(torchmetrics.functional.mean_squared_error(predictions, y))
