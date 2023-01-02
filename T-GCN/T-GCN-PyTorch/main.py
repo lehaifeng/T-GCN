@@ -6,13 +6,14 @@ import models
 import tasks
 import utils.callbacks
 import utils.data
-import utils.email
+# import utils.email
 import utils.logging
 
 
 DATA_PATHS = {
-    "shenzhen": {"feat": "data/sz_speed.csv", "adj": "data/sz_adj.csv"},
-    "losloop": {"feat": "data/los_speed.csv", "adj": "data/los_adj.csv"},
+    "shenzhen": {"feat": "_data/sz_speed.csv", "adj": "_data/sz_adj.csv"},
+    "losloop": {"feat": "_data/los_speed.csv", "adj": "_data/los_adj.csv"},
+    "my": {"feat": "my_data/chargeRecord_bj.csv", "adj": "my_data/distance_matrix_bj.csv"},
 }
 
 
@@ -59,7 +60,7 @@ def main_supervised(args):
 
 def main(args):
     rank_zero_info(vars(args))
-    results = globals()["main_" + args.settings](args)
+    results = globals()["main_" + args.settings](args) # 调用函数名为main_+setting的函数
     return results
 
 
@@ -68,14 +69,14 @@ if __name__ == "__main__":
     parser = pl.Trainer.add_argparse_args(parser)
 
     parser.add_argument(
-        "--data", type=str, help="The name of the dataset", choices=("shenzhen", "losloop"), default="losloop"
+        "--data", type=str, help="The name of the dataset", choices=("shenzhen", "losloop", 'my'), default="my"
     )
     parser.add_argument(
         "--model_name",
         type=str,
         help="The name of the model for spatiotemporal prediction",
         choices=("GCN", "GRU", "TGCN"),
-        default="GCN",
+        default="TGCN",
     )
     parser.add_argument(
         "--settings",
@@ -84,8 +85,8 @@ if __name__ == "__main__":
         choices=("supervised",),
         default="supervised",
     )
-    parser.add_argument("--log_path", type=str, default=None, help="Path to the output console log file")
-    parser.add_argument("--send_email", "--email", action="store_true", help="Send email when finished")
+    parser.add_argument("--log_path", type=str, default='./log', help="Path to the output console log file")
+    # parser.add_argument("--send_email", "--email", action="store_true", help="Send email when finished")
 
     temp_args, _ = parser.parse_known_args()
 
@@ -100,14 +101,6 @@ if __name__ == "__main__":
 
     try:
         results = main(args)
+        print(results)
     except:  # noqa: E722
         traceback.print_exc()
-        if args.send_email:
-            tb = traceback.format_exc()
-            subject = "[Email Bot][❌] " + "-".join([args.settings, args.model_name, args.data])
-            utils.email.send_email(tb, subject)
-        exit(-1)
-
-    if args.send_email:
-        subject = "[Email Bot][✅] " + "-".join([args.settings, args.model_name, args.data])
-        utils.email.send_experiment_results_email(args, results, subject=subject)
