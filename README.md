@@ -52,4 +52,5 @@ Graph contrastive learning is a promising direction toward alleviating the label
 
 The manuscript can be visited at arxiv https://arxiv.org/submit/4762122 or https://ieeexplore.ieee.org/document/10058898.
 
+## 8. High-Order Topology-Enhanced Graph Convolutional Networks (HoT-GCN) for Dynamic Graphs
 
