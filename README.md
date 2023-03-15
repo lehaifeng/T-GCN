@@ -15,7 +15,7 @@ All works can be deduced from this picture, and new works can also be inspired a
 
 The congruent relationships between Our works included in this repository and the big picture are listed in the following:
 <p align = 'center'>
-  <img src=./table.png>
+  <img src=./Table.png>
 </p>
 
 The file structure is listed as follows:
