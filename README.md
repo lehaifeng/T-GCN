@@ -4,7 +4,7 @@ This repository includes our works on Urban Traffic Flow Prediction by Graph Con
 The ideas behind our works can be abstracted and demonstrated in the following big picture. 
 
 <p align = 'center'>
-  <img width = '350' src=./big picture.png>
+  <img src=./big picture.png>
 </p>
 
 All works can be deduced from this picture, and new works can also be inspired and created. We further make it concrete according to our works.
