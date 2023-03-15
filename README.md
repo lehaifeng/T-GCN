@@ -1,5 +1,22 @@
 ## Overview
-This repository includes our works on Urban Traffic Flow Prediction by Graph Convolutional Network.
+This repository includes our works on Urban Traffic Flow Prediction by Graph Convolutional Network. We also include several works on Graph representation learning.
+
+The ideas behind our works can be abstracted and demonstrated in the following big picture. 
+
+<p align = 'center'>
+  <img width = '350' src=./big picture.png>
+</p>
+
+All works can be deduced from this picture, and new works can also be inspired and created. We further make it concrete according to our works.
+
+<p align = 'center'>
+  <img src=./big picture2.png>
+</p>
+
+The congruent relationships between Our works included in this repository and the big picture are listed in the following:
+<p align = 'center'>
+  <img src=./table.png>
+</p>
 
 The file structure is listed as follows:
 
