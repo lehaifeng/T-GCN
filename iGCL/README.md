@@ -43,7 +43,7 @@ If our repo is useful to you, please cite our published paper as follows:
 Bibtex
 @article{li2023iGCL,
     title={Augmentation-Free Graph Contrastive Learning of Invariant-Discriminative Representations},
-    author={Li, Haifeng; Cao, Jun; Luo, Qinyao; He, Silu; Wang, Xuying; Zhu*, Jiawei},
+    author={Li, Haifeng; Cao, Jun; Zhu*, Jiawei; Luo, Qinyao; He, Silu; Wang, Xuying},
     journal={IEEE Transactions on Neural Networks and Learning Systems},
     DOI = {10.1109/TNNLS.2023.3248871},
     year={2023},
@@ -54,10 +54,10 @@ Endnote
 %0 Journal Article
 %A Li, Haifeng
 %A Cao, Jun
+%A Zhu, Jiawei
 %A Luo, Qinyao
 %A He, Silu
 %A Wang, Xuying
-%A Zhu, Jiawei
 %D 2023
 %T Augmentation-Free Graph Contrastive Learning of Invariant-Discriminative Representations
 %B IEEE Transactions on Neural Networks and Learning Systems
