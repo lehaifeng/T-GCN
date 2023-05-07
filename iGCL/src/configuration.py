@@ -14,5 +14,5 @@ class Config:
         self.topk = 6
         self.lambd = 5e-3
         self.epochs = 1000
-
+        self.mad = 0.9
 
