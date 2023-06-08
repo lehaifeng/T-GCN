@@ -28,7 +28,9 @@ Our code is based on Python3 (>= 3.6). The major libraries are listed as follows
 - **causal-learn(>0.1.2.0)** 
 - **networkx(>2.6.3)** 
 
-···
+## Citation information
+If our repo is useful to you, please cite our published paper as follows:
+``` 
 Bibtex
 @article{li2023iGCL,
     title={STGC-GNNs: A GNN-based traffic prediction framework with a spatial–temporal Granger causality graph},
@@ -53,4 +55,4 @@ Endnote
 %B Physica A: Statistical Mechanics and its Applications
 %R 10.1016/j.physa.2023.128913
 %! STGC-GNNs: A GNN-based traffic prediction framework with a spatial–temporal Granger causality graph
-···
+``` 
