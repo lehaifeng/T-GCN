@@ -76,7 +76,7 @@ The extension of CGNN in the filed of traffic prediction is Spatio-temporal Cruv
 ## 6.STGC-GNNs: A GNN-based traffic prediction framework with a spatial-temporal Granger causality graph
 It is important to model the spatial dependence of the road network for traffic prediction tasks. The essence of spatial dependence is to accurately describe how traffic information transmission is affected by other nodes in the road network, and the GNN-based traffic prediction model, as a benchmark for traffic prediction, has become the most common method for the ability to model spatial dependence by transmitting traffic information with the message passing mechanism. However, the transmission of traffic information is a global and dynamic process in long-term traffic prediction, which cannot be described by the local and static spatial dependence. In this paper, we proposed a spatial-temporal Granger causality(STGC) to model the global and dynamic spatial dependence, which can capture a stable causal relationship between nodes underlying dynamic traffic flow. The STGC can be detected by a spatial-temporal Granger causality test methods proposed by us. We chose T-GCN, STGCN and Graph Wavenet as bakbones, and the experimental results on three backbone models show that using STGC to model the spatial dependence has better results than the original model for 45-min and 1 h long-term prediction. 
 
-The manuscript can be visited at https://www.sciencedirect.com/science/article/abs/pii/S0378437123004685.
+The manuscript can be visited at https://www.sciencedirect.com/science/article/abs/pii/S0378437123004685 or https://arxiv.org/abs/2210.16789.
 
 [The code](https://github.com/lehaifeng/T-GCN/tree/master/STGC-GNN)
 
