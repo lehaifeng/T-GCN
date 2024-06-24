@@ -20,21 +20,29 @@ The congruent relationships between Our works included in this repository and th
 
 The file structure is listed as follows:
 
-1 T-GCN is the source codes for the paper named “T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction” published at IEEE Transactions on Intelligent Transportation Systems (T-ITS) which forged the T-GCN model model the spatial and temporal dependence simultaneously. 
+<a href=”## 1. T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction”> 1 T-GCN is the source codes for the paper named “T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction” published at IEEE Transactions on Intelligent Transportation Systems (T-ITS) which forged the T-GCN model model the spatial and temporal dependence simultaneously. 
 
-2 A3T-GCN is the source codes for the paper named “A3T-GCN: Attention Temporal Graph Convolutional Network for Traffic Forecasting” published at ISPRS International Journal of Geo-Information which strengthen the T-GCN model model with attention structure.
+<a href=”## 2. A3T-GCN: Attention Temporal Graph Convolutional Network for Traffic Forecasting”> 2 A3T-GCN is the source codes for the paper named “A3T-GCN: Attention Temporal Graph Convolutional Network for Traffic Forecasting” published at ISPRS International Journal of Geo-Information which strengthen the T-GCN model model with attention structure.
 
-3 AST-GCN is the source codes for the paper named “AST-GCN: Attribute-Augmented Spatiotemporal Graph Convolutional Network for Traffic Forecasting” published at  IEEE Access which strengthen the T-GCN model model with attribute information.
+<a href=”## 3. AST-GCN: Attribute-Augmented Spatiotemporal Graph Convolutional Network for Traffic Forecasting”> 3 AST-GCN is the source codes for the paper named “AST-GCN: Attribute-Augmented Spatiotemporal Graph Convolutional Network for Traffic Forecasting” published at  IEEE Access which strengthen the T-GCN model model with attribute information.
 
-4 KST-GCN is the source codes for the paper named “KST-GCN: A Knowledge-Driven Spatial-Temporal Graph Convolutional Network for Traffic Forecasting” published at IEEE Transactions on Intelligent Transportation Systems (T-ITS) which  which strengthen the T-GCN model model with knowledge graph.
+<a href=”## 4. KST-GCN: A Knowledge-Driven Spatial-Temporal Graph Convolutional Network for Traffic Forecasting”> 4 KST-GCN is the source codes for the paper named “KST-GCN: A Knowledge-Driven Spatial-Temporal Graph Convolutional Network for Traffic Forecasting” published at IEEE Transactions on Intelligent Transportation Systems (T-ITS) which  which strengthen the T-GCN model model with knowledge graph.
 
-5 CGCN is the source codes for the paper named “Curvature graph neural network” published at Information Sciences which used ricci curvature information to model pivotal nodes. And STCGNN is the source codes for the paper named "Ollivier–Ricci Curvature Based Spatio-Temporal Graph Neural Networks for Traffic Flow Forecasting" which is a extension of CGCN in the filed of traffic forecasting.
+<a href=”## 5. Curvature graph neural network”> 5 CGCN is the source codes for the paper named “Curvature graph neural network” published at Information Sciences which used ricci curvature information to model pivotal nodes. And STCGNN is the source codes for the paper named "Ollivier–Ricci Curvature Based Spatio-Temporal Graph Neural Networks for Traffic Flow Forecasting" which is a extension of CGCN in the filed of traffic forecasting.
 
-6 STGC-GNNs is the source codes for the paper named "STGC-GNNs: A GNN-based traffic prediction framework with a spatial-temporal Granger causality graph" published at Physica A: Statistical Mechanics and its Applications. 
+<a href=”## 6.STGC-GNNs: A GNN-based traffic prediction framework with a spatial-temporal Granger causality graph”> 6 STGC-GNNs is the source codes for the paper named "STGC-GNNs: A GNN-based traffic prediction framework with a spatial-temporal Granger causality graph" published at Physica A: Statistical Mechanics and its Applications. 
 
-7 iGCL is the source codes for the paper named "Augmentation-Free Graph Contrastive Learning of Invariant-Discriminative Representations" published at IEEE Transactions on Neural Networks and Learning Systems.
+<a href=”## 7. Augmentation-Free Graph Contrastive Learning of Invariant-Discriminative Representations”> 7 iGCL is the source codes for the paper named "Augmentation-Free Graph Contrastive Learning of Invariant-Discriminative Representations" published at IEEE Transactions on Neural Networks and Learning Systems.
 
-8 Baseline includes methods such as (1) History Average model (HA) (2) Autoregressive Integrated Moving Average model (ARIMA) (3) Support Vector Regression model (SVR) (4) Graph Convolutional Network model (GCN) (5) Gated Recurrent Unit model (GRU)
+<a href=”## 8. High-Order Topology-Enhanced Graph Convolutional Networks (HoT-GCN) for Dynamic Graphs”> 8. High-Order Topology-Enhanced Graph Convolutional Networks (HoT-GCN) for Dynamic Graphs
+
+<a href=”## 9. Alleviating neighbor bias: augmenting graph self-supervise learning with structural equivalent positive samples”> 9. Alleviating neighbor bias: augmenting graph self-supervise learning with structural equivalent positive samples 
+
+<a href=”## 10. LSTTN: A Long-Short Term Transformer-based Spatiotemporal Neural Network for Traffic Flow Forecasting”> 10. LSTTN: A Long-Short Term Transformer-based Spatiotemporal Neural Network for Traffic Flow Forecasting published at Knowlege-based System.  
+
+<a href=”## 1. T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction”> 11. CAT: A Causally Graph Attention Network for Trimming Heterophilic Graph published at Information Science.  
+
+12 Baseline includes methods such as (1) History Average model (HA) (2) Autoregressive Integrated Moving Average model (ARIMA) (3) Support Vector Regression model (SVR) (4) Graph Convolutional Network model (GCN) (5) Gated Recurrent Unit model (GRU)
 
 ## 1. T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction
 Accurate and real-time traffic forecasting plays an important role in the Intelligent Traffic System and is of great significance for urban traffic planning, traffic management, and traffic control. However, traffic forecasting has always been considered an open scientific issue, owing to the constraints of urban road network topological structure and the law of dynamic change with time, namely, spatial dependence and temporal dependence. To capture the spatial and temporal dependence simultaneously, we propose a novel neural network-based traffic forecasting method, the temporal graph convolutional network (T-GCN) model, which is in combination with the graph convolutional network (GCN) and gated recurrent unit (GRU). Specifically, the GCN is used to learn complex topological structures to capture spatial dependence and the gated recurrent unit is used to learn dynamic changes of traffic data to capture temporal dependence. Then, the T-GCN model is employed to traffic forecasting based on the urban road network. Experiments demonstrate that our T-GCN model can obtain the spatio-temporal correlation from traffic data and the predictions outperform state-of-art baselines on real-world traffic datasets.
@@ -108,3 +116,9 @@ The manuscript can be visited at [arXiv](https://arxiv.org/abs/2403.16495) or [s
 
 [The code](https://github.com/GeoX-Lab/LSTTN)
 
+## 11. CAT: A Causally Graph Attention Network for Trimming Heterophilic Graph
+The local attention-guided message passing mechanism (LAMP) adopted in graph attention networks (GATs) can adaptively learn the importance of neighboring nodes and perform local aggregation better, thus demonstrating a stronger discrimination ability. However, existing GATs suffer from significant discrimination ability degradations in heterophilic graphs. The reason is that a high proportion of dissimilar neighbors can weaken the self-attention of the central node, resulting in the central node deviating from its similar nodes in the representation space. This type of influence caused by neighboring nodes is referred to as Distraction Effect (DE) in this paper. To estimate and weaken the DE induced by neighboring nodes, we propose a Causal graph Attention network for Trimming heterophilic graphs (CAT). To estimate the DE, since DE is generated through two paths, we adopt the total effect as the metric for estimating DE; To weaken the DE, we identify the neighbors with the highest DE (we call them Distraction Neighbors) and remove them. We adopt three representative GATs as the base model within the proposed CAT framework and conduct experiments on seven heterophilic datasets of three different sizes. Comparative experiments show that CAT can improve the node classification accuracies of all base GAT models. Ablation experiments and visualization further validate the enhanced discrimination ability of CATs. In addition, CAT is a plug-and-play framework and can be introduced to any LAMP-driven GAT because it learns a trimmed graph in the attention-learning stage, instead of modifying the model architecture or globally searching for new neighbors.
+
+The manuscript can be visited at [arXiv](https://arxiv.org/abs/2312.08672) or [sciencedirect](https://www.sciencedirect.com/science/article/pii/S0020025524008302)
+
+[The code](https://github.com/GeoX-Lab/CAT).
