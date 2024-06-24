@@ -20,27 +20,28 @@ The congruent relationships between Our works included in this repository and th
 
 The file structure is listed as follows:
 
-<a href=”## 1. T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction”> 1 T-GCN is the source codes for the paper named “T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction” published at IEEE Transactions on Intelligent Transportation Systems (T-ITS) which forged the T-GCN model model the spatial and temporal dependence simultaneously.  </a> 
+<a href=“## 1. T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction”> 1 T-GCN is the source codes for the paper named “T-GCN: A Temporal Graph Convolutional Network for Traffic Prediction” published at IEEE Transactions on Intelligent Transportation Systems (T-ITS) which forged the T-GCN model model the spatial and temporal dependence simultaneously.  </a> 
 
-<a href=”## 2. A3T-GCN: Attention Temporal Graph Convolutional Network for Traffic Forecasting”> 2 A3T-GCN is the source codes for the paper named “A3T-GCN: Attention Temporal Graph Convolutional Network for Traffic Forecasting” published at ISPRS International Journal of Geo-Information which strengthen the T-GCN model model with attention structure. </a> 
+<a href=“## 2. A3T-GCN: Attention Temporal Graph Convolutional Network for Traffic Forecasting”> 2 A3T-GCN is the source codes for the paper named “A3T-GCN: Attention Temporal Graph Convolutional Network for Traffic Forecasting” published at ISPRS International Journal of Geo-Information which strengthen the T-GCN model model with attention structure. </a> 
 
-<a href=”## 3. AST-GCN: Attribute-Augmented Spatiotemporal Graph Convolutional Network for Traffic Forecasting”> 3 AST-GCN is the source codes for the paper named “AST-GCN: Attribute-Augmented Spatiotemporal Graph Convolutional Network for Traffic Forecasting” published at  IEEE Access which strengthen the T-GCN model model with attribute information. </a> 
+<a href=“## 3. AST-GCN: Attribute-Augmented Spatiotemporal Graph Convolutional Network for Traffic Forecasting”> 3 AST-GCN is the source codes for the paper named “AST-GCN: Attribute-Augmented Spatiotemporal Graph Convolutional Network for Traffic Forecasting” published at  IEEE Access which strengthen the T-GCN model model with attribute information. </a> 
 
-<a href=”## 4. KST-GCN: A Knowledge-Driven Spatial-Temporal Graph Convolutional Network for Traffic Forecasting”> 4 KST-GCN is the source codes for the paper named “KST-GCN: A Knowledge-Driven Spatial-Temporal Graph Convolutional Network for Traffic Forecasting” published at IEEE Transactions on Intelligent Transportation Systems (T-ITS) which  which strengthen the T-GCN model model with knowledge graph. </a> 
+<a href=“## 4. KST-GCN: A Knowledge-Driven Spatial-Temporal Graph Convolutional Network for Traffic Forecasting”> 4 KST-GCN is the source codes for the paper named “KST-GCN: A Knowledge-Driven Spatial-Temporal Graph Convolutional Network for Traffic Forecasting” published at IEEE Transactions on Intelligent Transportation Systems (T-ITS) which  which strengthen the T-GCN model model with knowledge graph. </a> 
 
-<a href=”## 5. Curvature graph neural network”> 5 CGCN is the source codes for the paper named “Curvature graph neural network” published at Information Sciences which used ricci curvature information to model pivotal nodes. And STCGNN is the source codes for the paper named "Ollivier–Ricci Curvature Based Spatio-Temporal Graph Neural Networks for Traffic Flow Forecasting" which is a extension of CGCN in the filed of traffic forecasting. </a> 
+<a href=“## 5. Curvature graph neural network”> 5 CGCN is the source codes for the paper named “Curvature graph neural network” published at Information Sciences which used ricci curvature information to model pivotal nodes. And STCGNN is the source codes for the paper named "Ollivier–Ricci Curvature Based Spatio-Temporal Graph Neural Networks for Traffic Flow Forecasting" which is a extension of CGCN in the filed of traffic forecasting. </a> 
 
-<a href=”## 6.STGC-GNNs: A GNN-based traffic prediction framework with a spatial-temporal Granger causality graph”> 6 STGC-GNNs is the source codes for the paper named "STGC-GNNs: A GNN-based traffic prediction framework with a spatial-temporal Granger causality graph" published at Physica A: Statistical Mechanics and its Applications. </a> 
+<a href=“## 6.STGC-GNNs: A GNN-based traffic prediction framework with a spatial-temporal Granger causality graph”> 6 STGC-GNNs is the source codes for the paper named "STGC-GNNs: A GNN-based traffic prediction framework with a spatial-temporal Granger causality graph" published at Physica A: Statistical Mechanics and its Applications. </a> 
 
-<a href=”## 7. Augmentation-Free Graph Contrastive Learning of Invariant-Discriminative Representations”> 7 iGCL is the source codes for the paper named "Augmentation-Free Graph Contrastive Learning of Invariant-Discriminative Representations" published at IEEE Transactions on Neural Networks and Learning Systems. </a> 
+<a href="## 7. Augmentation-Free Graph Contrastive Learning of Invariant-Discriminative Representations”> 7 iGCL is the source codes for the paper named "Augmentation-Free Graph Contrastive Learning of Invariant-Discriminative Representations" published at IEEE Transactions on Neural Networks and Learning Systems. </a> 
+<a href="#Citation">Citation</a>
 
-<a href=”## 8. High-Order Topology-Enhanced Graph Convolutional Networks (HoT-GCN) for Dynamic Graphs”> 8. High-Order Topology-Enhanced Graph Convolutional Networks (HoT-GCN) for Dynamic Graphs. </a>
+<a href=“## 8. High-Order Topology-Enhanced Graph Convolutional Networks (HoT-GCN) for Dynamic Graphs”> 8. High-Order Topology-Enhanced Graph Convolutional Networks (HoT-GCN) for Dynamic Graphs. </a>
 
-<a href=”## 9. Alleviating neighbor bias: augmenting graph self-supervise learning with structural equivalent positive samples”> 9. Alleviating neighbor bias: augmenting graph self-supervise learning with structural equivalent positive samples.  </a>
+<a href=“## 9. Alleviating neighbor bias: augmenting graph self-supervise learning with structural equivalent positive samples”> 9. Alleviating neighbor bias: augmenting graph self-supervise learning with structural equivalent positive samples.  </a>
 
-<a href=”## 10. LSTTN: A Long-Short Term Transformer-based Spatiotemporal Neural Network for Traffic Flow Forecasting”> 10. LSTTN: A Long-Short Term Transformer-based Spatiotemporal Neural Network for Traffic Flow Forecasting published at Knowlege-based System.  </a>
+<a href=“## 10. LSTTN: A Long-Short Term Transformer-based Spatiotemporal Neural Network for Traffic Flow Forecasting”> 10. LSTTN: A Long-Short Term Transformer-based Spatiotemporal Neural Network for Traffic Flow Forecasting published at Knowlege-based System.  </a>
 
-<a href=”## ## 11. CAT: A Causally Graph Attention Network for Trimming Heterophilic Graph”> 11. CAT: A Causally Graph Attention Network for Trimming Heterophilic Graph published at Information Science. </a> 
+<a href=“## ## 11. CAT: A Causally Graph Attention Network for Trimming Heterophilic Graph”> 11. CAT: A Causally Graph Attention Network for Trimming Heterophilic Graph published at Information Science. </a> 
 
 12 Baseline includes methods such as (1) History Average model (HA) (2) Autoregressive Integrated Moving Average model (ARIMA) (3) Support Vector Regression model (SVR) (4) Graph Convolutional Network model (GCN) (5) Gated Recurrent Unit model (GRU)
 
